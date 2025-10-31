@@ -1,0 +1,207 @@
+@use '@coreui/coreui/scss/coreui' as * with (
+  $enable-deprecation-messages: false
+);
+@use '@coreui/chartjs/scss/coreui-chartjs';
+@use 'vendors/simplebar';
+
+.sidebar {
+  background-color: #36302d !important;
+}
+
+body {
+  background-color: var(--cui-tertiary-bg);
+}
+
+.wrapper {
+  width: 100%;
+  padding-inline: var(--cui-sidebar-occupy-start, 0) var(--cui-sidebar-occupy-end, 0);
+  will-change: auto;
+  @include transition(padding 0.15s);
+}
+
+.header > .container-fluid,
+.sidebar-header {
+  min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+}
+
+.sidebar-brand-full {
+  margin-left: 3px;
+}
+
+.sidebar-header {
+  .nav-underline-border {
+    --cui-nav-underline-border-link-padding-x: 1rem;
+    --cui-nav-underline-border-gap: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+  }
+}
+
+.sidebar-toggler {
+  margin-inline-start: auto;
+}
+
+.sidebar-narrow,
+.sidebar-narrow-unfoldable:not(:hover) {
+  .sidebar-toggler {
+    margin-inline-end: auto;
+  }
+}
+
+.header > .container-fluid + .container-fluid {
+  min-height: 3rem;
+}
+
+.footer {
+  min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
+}
+
+@include color-mode(dark) {
+  body {
+    background-color: var(--cui-dark-bg-subtle);
+  }
+
+  .footer {
+    --cui-footer-bg: var(--cui-body-bg);
+  }
+}
+
+body {
+  font-family: 'Cinzel', serif;
+  background-color: #fef9f5;
+}
+
+.landing-wrapper {
+  background: url('/madeira-textura.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  color: #4b2e1f;
+}
+
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #4b2e1f;
+  color: #fff;
+}
+/* Aplica a altura mínima da página e estrutura flexível */
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Garante que o rodapé grude na parte de baixo sem espaço extra */
+.landing-wrapper .footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  text-align: center;
+  background-color: #4a2d1f;
+  color: white;
+}
+
+.nav-links a {
+  margin: 0 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero-section {
+  padding: 4rem 0;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0c0c0c;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #0c0c0c;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00000033;
+}
+
+.features-section {
+  padding: 4rem 0;
+  background-color: #fdffff;
+  text-align: center;
+}
+.features-message {
+  padding: 4rem 0;
+  background-color: #b5c1f0;
+  text-align: center;
+}
+
+.features-clientes {
+  padding: 4rem 0;
+  background-color: #b5c1f0;
+  text-align: center;
+}
+
+.features-start {
+  padding: 4rem 0;
+  background-color: #fdfdfd;
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #36302d;
+  color: #fff;
+}
+
+.sidebar-brand-full {
+  margin-left: 3px;
+  height: 52px;
+}
+
+/* Colocar setas fora do slider */
+.swiper-button-prev {
+  left: -40px !important; /* empurra pra fora */
+}
+
+.swiper-button-next {
+  right: -40px !important;
+}
+
+/* melhor aparência */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff; /* pode trocar pra preto se seu fundo for claro */
+  transition: 0.2s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.25);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  z-index: 99 !important; /* força aparecer por cima */
+  color: #000 !important; /* ou branco se o fundo for escuro */
+}
+
+/* empurrar pra fora */
+.swiper-button-prev {
+  left: -40px !important;
+}
+
+.swiper-button-next {
+  right: -40px !important;
+}
