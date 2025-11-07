@@ -1,10 +1,10 @@
+// src/App.js
 import React, { Suspense, useEffect } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { CSpinner, useColorModes } from '@coreui/react'
+import routes from './routes'
 import './scss/style.scss'
-
-const LandingPage = React.lazy(() => import('./views/Landing/LandingPage2'))
 
 const App = () => {
   const storedTheme = useSelector((state) => state.theme)
@@ -30,7 +30,9 @@ const App = () => {
         }
       >
         <Routes>
-          <Route path="*" name="Home" element={<LandingPage />} />
+          {routes.map((route, idx) => (
+            <Route key={idx} path={route.path} element={route.element} />
+          ))}
         </Routes>
       </Suspense>
     </HashRouter>

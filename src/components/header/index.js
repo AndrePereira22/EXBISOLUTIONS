@@ -1,2 +1,2 @@
 import HeaderLanding from './HeaderLaging'
-export {  HeaderLanding}
+export { HeaderLanding }
