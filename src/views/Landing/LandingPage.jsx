@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { CButton, CContainer, CRow, CCol, CCard, CCardBody } from '@coreui/react'
-import { FaBolt, FaExpand, FaLink } from 'react-icons/fa'
+import { FaBolt, FaExpand, FaLink, FaTachometerAlt, FaSyncAlt, FaUsers } from 'react-icons/fa'
 import { HeaderLanding } from '../../components/header/index'
 import { AppFooterLanding } from '../../components/footer/index'
 import nerd from './../../assets/images/img_nerd.png'
@@ -10,13 +10,16 @@ import insights_estrategia from './../../assets/images/img_entrategia.png'
 import img_funcionais from './../../assets/images/img_funcionais.png'
 import inteligencia_mercado_grafic from './../../assets/images/inteligencia_mercado_grafic.webp'
 import ExplorarModal from '../modals/ExplorarModal'
+import FaleComEspecialistaModal from '../modals/FaleComEspecialistaModal'
+import { motion } from 'framer-motion'
 
 const LandingPage = () => {
   const [visible, setVisible] = useState(false)
+  const [showFaleComModal, setShowFaleComModal] = useState(false)
 
   return (
     <CCard className="landing-wrapper" style={{ overflowX: 'hidden', border: 'none' }}>
-      <HeaderLanding />
+      <HeaderLanding onOpenFaleComModal={() => setShowFaleComModal(true)} />
 
       {/* ===== HERO SECTION ===== */}
       <section
@@ -92,7 +95,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaBolt size={20} />
+                    <FaBolt size={25} />
                   </CCard>
                   <span style={{ fontSize: '1.05rem' }}>Insights em tempo real</span>
                 </CCol>
@@ -110,7 +113,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaExpand size={20} />
+                    <FaExpand size={25} />
                   </CCard>
                   <span style={{ fontSize: '1.05rem' }}>Integração completa</span>
                 </CCol>
@@ -128,7 +131,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaLink size={20} />
+                    <FaLink size={25} />
                   </CCard>
                   <span style={{ fontSize: '1.05rem' }}>Automação de relatórios</span>
                 </CCol>
@@ -144,14 +147,23 @@ const LandingPage = () => {
                 justifyContent: 'flex-end',
               }}
             >
-              <img
+              <motion.img
                 src={nerd}
                 alt="Dashboard"
                 style={{
-                  maxWidth: '100%',
+                  maxWidth: '70%',
                   height: 'auto',
                   borderRadius: '12px',
                   objectFit: 'contain',
+                  transition: 'all 0.4s ease',
+                }}
+                whileHover={{
+                  scale: 1.05, // zoom leve
+                  filter: 'brightness(1.1)', // deixa mais brilhante
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.2)', // adiciona sombra
+                }}
+                whileTap={{
+                  scale: 0.98, // leve redução ao clicar
                 }}
               />
             </CCol>
@@ -195,10 +207,10 @@ const LandingPage = () => {
 
       {/* ===== FEATURES SECTION ===== */}
       <section id="features" className="features-section py-5">
-        <CContainer className="mb-5">
+        <CContainer className="mb-5 mt-5">
           <CRow className="mb-5">
             <CCol md={4}>
-              <h2 className="fw-bold display-6">O que oferecemos</h2>
+              <h3 className="fw-bold display-6">O que oferecemos</h3>
               <p className="lead mt-2">
                 Descubra como informações precisas e insights inteligentes podem potencializar o
                 sucesso do seu negócio.
@@ -208,11 +220,19 @@ const LandingPage = () => {
 
           <CRow className="text-center g-4 mt-5">
             <CCol md={3}>
-              <img
+              <motion.img
                 src={dash_inteligentes}
                 alt="Workflows funcionais"
                 className="img-fluid mb-3 rounded"
                 style={{ maxWidth: '100%' }}
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
               />
               <h5 className="mt-3 fw-bold text-start">Dashboards Inteligentes</h5>
               <p className="mt-3 text-start">
@@ -222,11 +242,19 @@ const LandingPage = () => {
             </CCol>
 
             <CCol md={3}>
-              <img
+              <motion.img
                 src={automacao_processos}
                 alt="Soluções completas"
                 className="img-fluid mb-3 rounded"
                 style={{ maxWidth: '100%' }}
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
               />
               <h5 className="mt-3 fw-bold text-start">Automação de Processos</h5>
               <p className="mt-3 text-start">
@@ -235,11 +263,19 @@ const LandingPage = () => {
             </CCol>
 
             <CCol md={3}>
-              <img
+              <motion.img
                 src={insights_estrategia}
                 alt="Tecnologia avançada"
                 className="img-fluid mb-3 rounded"
                 style={{ maxWidth: '100%' }}
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
               />
               <h5 className="mt-3 fw-bold text-start">Insights Estratégicos</h5>
               <p className="mt-3 text-start">
@@ -248,11 +284,19 @@ const LandingPage = () => {
             </CCol>
 
             <CCol md={3}>
-              <img
+              <motion.img
                 src={img_funcionais}
                 alt="Resultados garantidos"
                 className="img-fluid mb-3 rounded"
                 style={{ maxWidth: '100%' }}
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 3.2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
               />
               <h5 className="mt-3 fw-bold text-start">Workflows Funcionais</h5>
               <p className="mt-3 text-start">
@@ -262,10 +306,10 @@ const LandingPage = () => {
           </CRow>
         </CContainer>
 
-        <CContainer className="mt-5">
+        <CContainer className="mt-5 mb-5">
           <CRow className="align-items-center mt-5">
             <CCol md={5} className="text-end">
-              <img
+              <motion.img
                 src={inteligencia_mercado_grafic}
                 alt="Dashboard"
                 style={{
@@ -273,6 +317,10 @@ const LandingPage = () => {
                   borderRadius: '12px',
                   objectFit: 'contain',
                 }}
+                initial={{ opacity: 0, filter: 'blur(20px)', scale: 1.95 }}
+                whileInView={{ opacity: 1, filter: 'blur(0px)', scale: 1.1 }}
+                transition={{ duration: 1.8, ease: 'easeOut' }}
+                viewport={{ once: true }}
               />
             </CCol>
 
@@ -281,7 +329,7 @@ const LandingPage = () => {
             <CCol md={5}>
               <h1
                 style={{
-                  fontSize: '2.5rem',
+                  fontSize: '2.3rem',
                   fontWeight: '700',
                   lineHeight: '1.2',
                   marginBottom: '1.5rem',
@@ -317,7 +365,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaBolt size={20} />
+                    <FaTachometerAlt size={25} />
                   </CCard>
                   <span style={{ fontSize: '0.95rem' }}>Velocidade e segurança</span>
                 </CCol>
@@ -335,7 +383,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaExpand size={20} />
+                    <FaSyncAlt size={25} />
                   </CCard>
                   <span style={{ fontSize: '0.95rem' }}>Flexibilidade e agilidade</span>
                 </CCol>
@@ -353,7 +401,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaLink size={20} />
+                    <FaUsers size={25} />
                   </CCard>
                   <span style={{ fontSize: '0.95rem' }}>Melhor colaboração</span>
                 </CCol>
@@ -365,75 +413,74 @@ const LandingPage = () => {
 
       {/* ===== DEPOIMENTOS SECTION ===== */}
       <section id="features-clientes" className="features-clientes py-5">
-        <CContainer>
-          <CRow className="mb-4">
+        <CContainer className="mt-4">
+          <CRow className="mb-5">
             <CCol md={12}>
               <h2 className="fw-bold display-6">O que nossos clientes dizem</h2>
             </CCol>
           </CRow>
 
-<CRow className="g-4 pb-5">
-  {[
-    {
-      nome: 'João Martins',
-      empresa: 'Clínica Vida+',
-      texto:
-        'A Exbi Solutions trouxe uma transformação enorme na nossa rotina. Antes, o agendamento e a gestão dos pacientes eram confusos e demorados. Hoje, tudo é automatizado, prático e integrado. A equipe é super atenciosa e entende realmente as necessidades da clínica.',
-    },
-    {
-      nome: 'Mariana Lopes',
-      empresa: 'Farmácia Popular',
-      texto:
-        'Encontramos na Exbi um parceiro de verdade. Eles não apenas entregaram o sistema, mas acompanharam todo o processo de adaptação da equipe. O resultado foi uma redução significativa de erros e mais controle sobre o estoque e as vendas.',
-    },
-    {
-      nome: 'Carlos Eduardo',
-      empresa: 'Hospital Esperança',
-      texto:
-        'O sistema desenvolvido pela Exbi Solutions mudou completamente nossa gestão hospitalar. Hoje temos relatórios automáticos, dashboards claros e uma comunicação muito mais eficiente entre os setores. Profissionalismo e qualidade definem o trabalho deles.',
-    },
-  ].map((item, i) => (
-    <CCol md={4} key={i}>
-      <CCard
-        className="h-100 border-0 bg-white p-3 shadow-sm"
-        style={{
-          transition: 'all 0.3s ease',
-          cursor: 'pointer',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-6px)'
-          e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)'
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)'
-          e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.08)'
-        }}
-      >
-        <CCardBody>
-          <p
-            className="fst-italic mb-3"
-            style={{
-              color: '#555',
-              fontSize: '1rem',
-              lineHeight: '1.7',
-            }}
-          >
-            “{item.texto}”
-          </p>
-          <h6 className="fw-bold mb-0 text-dark">{item.nome}</h6>
-          <small className="text-secondary">{item.empresa}</small>
-        </CCardBody>
-      </CCard>
-    </CCol>
-  ))}
-</CRow>
-
-
+          <CRow className="g-4 pb-5">
+            {[
+              {
+                nome: 'João Martins',
+                empresa: 'Clínica Vida+',
+                texto:
+                  'A Exbi Solutions trouxe uma transformação enorme na nossa rotina. Antes, o agendamento e a gestão dos pacientes eram confusos e demorados. Hoje, tudo é automatizado, prático e integrado. A equipe é super atenciosa e entende realmente as necessidades da clínica.',
+              },
+              {
+                nome: 'Mariana Lopes',
+                empresa: 'Farmácia Popular',
+                texto:
+                  'Encontramos na Exbi um parceiro de verdade. Eles não apenas entregaram o sistema, mas acompanharam todo o processo de adaptação da equipe. O resultado foi uma redução significativa de erros e mais controle sobre o estoque e as vendas.',
+              },
+              {
+                nome: 'Carlos Eduardo',
+                empresa: 'Hospital Esperança',
+                texto:
+                  'O sistema desenvolvido pela Exbi Solutions mudou completamente nossa gestão hospitalar. Hoje temos relatórios automáticos, dashboards claros e uma comunicação muito mais eficiente entre os setores. Profissionalismo e qualidade definem o trabalho deles.',
+              },
+            ].map((item, i) => (
+              <CCol md={4} key={i}>
+                <CCard
+                  className="h-100 border-0 bg-white p-3 shadow-sm"
+                  style={{
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-6px)'
+                    e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.08)'
+                  }}
+                >
+                  <CCardBody>
+                    <p
+                      className="fst-italic mb-3"
+                      style={{
+                        color: '#555',
+                        fontSize: '1rem',
+                        lineHeight: '1.7',
+                      }}
+                    >
+                      “{item.texto}”
+                    </p>
+                    <h6 className="fw-bold mb-0 text-dark">{item.nome}</h6>
+                    <small className="text-secondary">{item.empresa}</small>
+                  </CCardBody>
+                </CCard>
+              </CCol>
+            ))}
+          </CRow>
         </CContainer>
       </section>
 
       {/* ===== MODAL ===== */}
       <ExplorarModal visible={visible} setVisible={setVisible} />
+      <FaleComEspecialistaModal visible={showFaleComModal} setVisible={setShowFaleComModal} />
       <AppFooterLanding />
     </CCard>
   )

@@ -1,10 +1,12 @@
 import React from 'react'
-import { CContainer, CRow, CCol, CCard, CCardBody, CCardTitle, CCardText,CButton } from '@coreui/react'
-import { ArrowLeft } from 'lucide-react'
+import { CContainer, CRow, CCol, CCard, CCardBody, CCardTitle, CCardText } from '@coreui/react'
+import BackHomeButton from '../../components/BackHomeButton'
 
 const CasesSucesso = () => {
   return (
-            <div className=" min-vh-100 d-flex flex-column justify-content-center" style={{
+    <div
+      className=" min-vh-100 d-flex flex-column justify-content-center"
+      style={{
         background: 'linear-gradient(135deg, #4b88e2ff 0%, #051936ff 100%)',
         color: 'white',
         minHeight: '100vh',
@@ -14,7 +16,7 @@ const CasesSucesso = () => {
     >
       <CContainer className="bg-white">
         {/* Título e descrição */}
-        <CRow className="justify-content-center text-center mb-5">
+        <CRow className="justify-content-center text-center mb-5 mt-5">
           <CCol md={8}>
             <h2
               style={{
@@ -162,25 +164,10 @@ const CasesSucesso = () => {
                   <strong>22%</strong>.
                 </CCardText>
               </CCardBody>
-
             </CCard>
           </CCol>
-                        <div className="text-center mt-4">
-                <CButton
-                  color="primary"
-                  href="/"
-                  style={{
-                    borderRadius: '8px',
-                    padding: '10px 20px',
-                    fontWeight: '600',
-                  }}
-                >
-                  <ArrowLeft size={16} className="me-2" />
-                  Voltar
-                </CButton>
-              </div>
+          <BackHomeButton />
         </CRow>
-        
       </CContainer>
     </div>
   )

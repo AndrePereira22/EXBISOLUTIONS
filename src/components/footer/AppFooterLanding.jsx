@@ -2,13 +2,18 @@ import React from 'react'
 import { CContainer, CRow, CCol, CFooter, CLink, CButton } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilPhone, cilEnvelopeClosed, cilGlobeAlt } from '@coreui/icons'
+import ScrollToTopButton from '../ScrollToTopButton'
 
 const AppFooter = () => {
   return (
-    <CFooter style={{ 
-       background: 'linear-gradient(135deg, #1c5dbeff 0%, #051936ff 100%)',
-      
-    borderTop: 'none' }} className="text-white pt-5">
+    <CFooter
+      style={{
+        background: 'linear-gradient(135deg, #1c5dbeff 0%, #051936ff 100%)',
+
+        borderTop: 'none',
+      }}
+      className="text-white pt-5"
+    >
       <CContainer>
         <CRow>
           {/* Coluna 1 - Descrição */}
@@ -84,15 +89,7 @@ const AppFooter = () => {
             </small>
           </CCol>
           <CCol md={6} className="text-end">
-            <CButton
-              style={{ color: 'white' }}
-              size="sm"
-              variant="outline"
-              className="text-dark rounded-pill"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              Voltar ao topo ↑
-            </CButton>
+            <ScrollToTopButton />
           </CCol>
         </CRow>
       </CContainer>

@@ -1,17 +1,20 @@
 // src/views/pages/Terms.js
 import React from 'react'
-import { CContainer, CCard, CCardBody, CButton } from '@coreui/react'
-import { ArrowLeft } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { CContainer, CCard, CCardBody } from '@coreui/react'
+import BackHomeButton from '../../components/BackHomeButton'
 
 const Terms = () => (
-      <div className=" min-vh-100 d-flex flex-column justify-content-center" style={{
-        background: 'linear-gradient(135deg, #4b88e2ff 0%, #051936ff 100%)',
-        color: 'white',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
+  <div
+    className=" min-vh-100 d-flex flex-column justify-content-center"
+    style={{
+      background: 'linear-gradient(135deg, #4b88e2ff 0%, #051936ff 100%)',
+      color: 'white',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+    }}
+  >
     <CContainer style={{ maxWidth: '950px' }}>
       <CCard
         className="shadow border-0 rounded-4"
@@ -60,13 +63,13 @@ const Terms = () => (
             A <strong>Expert BI Solutions</strong> trata os dados pessoais de acordo com a Lei Geral
             de Proteção de Dados (Lei nº 13.709/2018). Suas informações são utilizadas apenas para
             fins de comunicação e prestação de serviços. Para mais detalhes, acesse nossa{' '}
-            <a
-              href="/privacy"
+            <Link
+              to="/privacy"
               className="text-decoration-none fw-semibold"
               style={{ color: '#0b2b70' }}
             >
               Política de Privacidade
-            </a>
+            </Link>
             .
           </p>
 
@@ -101,20 +104,7 @@ const Terms = () => (
           <p className="text-center mt-5 small">
             © {new Date().getFullYear()} Expert BI Solutions — Todos os direitos reservados.
           </p>
-          <div className="text-center mt-4">
-            <CButton
-              color="primary"
-              href="/"
-              style={{
-                borderRadius: '8px',
-                padding: '10px 20px',
-                fontWeight: '600',
-              }}
-            >
-              <ArrowLeft size={16} className="me-2" />
-              Voltar
-            </CButton>
-          </div>
+          <BackHomeButton />
         </CCardBody>
       </CCard>
     </CContainer>

@@ -12,11 +12,13 @@ import {
   CAccordionHeader,
   CAccordionBody,
 } from '@coreui/react'
-import { ArrowLeft } from 'lucide-react'
+import BackHomeButton from '../../components/BackHomeButton'
 
 const FAQ = () => {
   return (
-        <div className=" min-vh-100 d-flex flex-column justify-content-center" style={{
+    <div
+      className=" min-vh-100 d-flex flex-column justify-content-center"
+      style={{
         background: 'linear-gradient(135deg, #4b88e2ff 0%, #051936ff 100%)',
         color: 'white',
         minHeight: '100vh',
@@ -116,20 +118,7 @@ const FAQ = () => {
                 <p className="mt-5 text-center text-secondary small">
                   Última atualização: Novembro de 2025
                 </p>
-                <div className="text-center mt-4">
-                  <CButton
-                    color="primary"
-                    href="/"
-                    style={{
-                      borderRadius: '8px',
-                      padding: '10px 20px',
-                      fontWeight: '600',
-                    }}
-                  >
-                    <ArrowLeft size={16} className="me-2" />
-                    Voltar
-                  </CButton>
-                </div>
+                <BackHomeButton />
               </CCardBody>
             </CCard>
           </CCol>

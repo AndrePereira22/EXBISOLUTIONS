@@ -39,26 +39,34 @@ const ExplorarModal = ({ visible, setVisible }) => {
       backdrop="static"
       className="explorar-modal"
     >
-      <CModalHeader className="border-0 pb-0 bg-gradient" style={{
-        background: 'linear-gradient(135deg, #4b88e2, #051936)',
-        color: 'white',
-        borderTopLeftRadius: '10px',
-        borderTopRightRadius: '10px',
-      }}>
-        <CModalTitle style={{ fontWeight: 700, fontFamily: 'Inter, sans-serif', fontSize: '1.5rem' }}>
+      <CModalHeader
+        className="border-0 pb-0 bg-gradient"
+        style={{
+          background: 'linear-gradient(135deg, #4b88e2, #051936)',
+          color: 'white',
+          borderTopLeftRadius: '10px',
+          borderTopRightRadius: '10px',
+        }}
+      >
+        <CModalTitle
+          style={{ fontWeight: 700, fontFamily: 'Inter, sans-serif', fontSize: '1.5rem' }}
+        >
           Descubra soluções personalizadas
         </CModalTitle>
       </CModalHeader>
 
-      <CModalBody className="pt-4 px-4" style={{ fontFamily: 'Poppins, sans-serif', color: '#333' }}>
+      <CModalBody
+        className="pt-4 px-4"
+        style={{ fontFamily: 'Poppins, sans-serif', color: '#333' }}
+      >
         <p style={{ fontSize: '1rem', color: '#555' }}>
-          Escolha o ramo da sua empresa e descubra automações e métricas sob medida para o seu negócio.
+          Escolha o tipo de negócio e explore automações e métricas personalizadas.
         </p>
 
         {/* Campo Ramo */}
         <div className="mb-4 mt-3">
           <label className="form-label fw-semibold" style={{ color: '#222' }}>
-            Ramo da empresa
+            Tipo de negócio
           </label>
           <select
             className="form-select"
@@ -116,7 +124,11 @@ const ExplorarModal = ({ visible, setVisible }) => {
 
       <CModalFooter
         className="border-0 d-flex justify-content-between px-4 pb-4"
-        style={{ backgroundColor: '#f8f9fc', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px' }}
+        style={{
+          backgroundColor: '#f8f9fc',
+          borderBottomLeftRadius: '10px',
+          borderBottomRightRadius: '10px',
+        }}
       >
         <CButton
           color="secondary"

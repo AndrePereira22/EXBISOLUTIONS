@@ -1,17 +1,25 @@
 import React from 'react'
-import { CContainer, CRow, CCol, CCard, CCardBody, CImage, CButton } from '@coreui/react'
-import { ArrowLeft } from 'lucide-react'
+import { CContainer, CRow, CCol, CCard, CCardBody, CImage } from '@coreui/react'
+import BackHomeButton from '../../components/BackHomeButton'
 
 const Sobre = () => {
   const cards = [
     {
+      titulo: 'Quem Somos',
+      descricao:
+        'A Exbi Solutions é especialista em Business Intelligence e relatórios gerenciais, oferecendo também soluções web e automação de processos que impulsionam a eficiência e a tomada de decisão nas empresas.',
+      imagem: 'https://cdn-icons-png.flaticon.com/512/3135/3135712.png',
+    },
+    {
       titulo: 'Nossa Visão',
-      descricao: 'Ser referência nacional em soluções tecnológicas inovadoras para gestão empresarial.',
+      descricao:
+        'Ser referência nacional em soluções tecnológicas inovadoras para gestão empresarial.',
       imagem: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
     },
     {
       titulo: 'Nossa Missão',
-      descricao: 'Desenvolver sistemas eficientes e acessíveis que simplifiquem o dia a dia das empresas.',
+      descricao:
+        'Desenvolver sistemas eficientes e acessíveis que simplifiquem o dia a dia das empresas.',
       imagem: 'https://cdn-icons-png.flaticon.com/512/3135/3135685.png',
     },
     {
@@ -19,18 +27,12 @@ const Sobre = () => {
       descricao: 'Inovação, transparência, compromisso e foco na satisfação dos clientes.',
       imagem: 'https://cdn-icons-png.flaticon.com/512/3135/3135773.png',
     },
-    {
-      titulo: 'Quem Somos',
-      descricao:
-        'A Exbi Solutions é uma empresa especializada em desenvolvimento de software e automação de processos empresariais, oferecendo soluções sob medida para diversos segmentos.',
-      imagem: 'https://cdn-icons-png.flaticon.com/512/3135/3135712.png',
-    },
   ]
 
   return (
     <div
       style={{
-                background: 'linear-gradient(135deg, #4b88e2ff 0%, #051936ff 100%)',
+        background: 'linear-gradient(135deg, #4b88e2ff 0%, #051936ff 100%)',
         color: '#333',
         minHeight: '100vh',
         display: 'flex',
@@ -41,12 +43,10 @@ const Sobre = () => {
         {/* Cabeçalho */}
         <CRow className="justify-content-center mb-5 text-center">
           <CCol md="8">
-            <h2 className="fw-bold mb-3 display-5 text-light">
-              Sobre a Exbi Solutions
-            </h2>
+            <h2 className="fw-bold mb-3 display-5 text-warning">Sobre a Exbi Solutions</h2>
             <p className="fs-4 text-light">
-              Oferecemos soluções tecnológicas modernas que ajudam empresas a crescer com eficiência,
-              inovação e segurança.
+              Oferecemos soluções tecnológicas modernas que ajudam empresas a crescer com
+              eficiência, inovação e segurança.
             </p>
           </CCol>
         </CRow>
@@ -81,9 +81,7 @@ const Sobre = () => {
                       filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
                     }}
                   />
-                  <h5 className="fw-bold" style={{ color: '#007bff' }}>
-                    {item.titulo}
-                  </h5>
+                  <h5 className="fw-bold text-info">{item.titulo}</h5>
                   <p className="text-secondary small">{item.descricao}</p>
                 </CCardBody>
               </CCard>
@@ -91,21 +89,7 @@ const Sobre = () => {
           ))}
         </CRow>
 
-        {/* Botão Voltar */}
-        <div className="text-center mt-4">
-          <CButton
-            color="primary"
-            href="/"
-            style={{
-              borderRadius: '8px',
-              padding: '10px 20px',
-              fontWeight: '600',
-            }}
-          >
-            <ArrowLeft size={16} className="me-2" />
-            Voltar
-          </CButton>
-        </div>
+        <BackHomeButton />
       </CContainer>
     </div>
   )

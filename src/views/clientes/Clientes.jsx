@@ -1,28 +1,14 @@
 import React from 'react'
-import { CContainer, CRow, CCol, CCard, CCardBody, CImage, CButton } from '@coreui/react'
-import { ArrowLeft } from 'lucide-react'
+import { CContainer, CRow, CCol, CCard, CCardBody, CImage } from '@coreui/react'
+import BackHomeButton from '../../components/BackHomeButton'
 
 const Clientes = () => {
   const clientes = [
     {
-      nome: 'Clínica Vida+',
-      descricao: 'Soluções integradas de agendamento e prontuário eletrônico.',
-      logo: 'https://cdn-icons-png.flaticon.com/512/2967/2967109.png',
-    },
-    {
-      nome: 'Farmácia Popular',
-      descricao: 'Automatização de processos e integração com estoque e vendas.',
-      logo: 'https://cdn-icons-png.flaticon.com/512/2965/2965567.png',
-    },
-    {
-      nome: 'Hospital Esperança',
-      descricao: 'Sistema completo de gestão hospitalar com dashboards analíticos.',
-      logo: 'https://cdn-icons-png.flaticon.com/512/2965/2965564.png',
-    },
-    {
       nome: 'Clínica Consulte',
-      descricao: 'Automação de serviços. Desonvolvimento de dashboards gerenciais.',
-      logo: 'https://raw.githubusercontent.com/AnalistasCSJ/arquivos_consulte_static_capitao/refs/heads/main/images/logo.webp',
+      descricao:
+        'Soluções completas de agendamento e automação de serviços.Desenvolvemos aplicações web inteligentes e dashboards gerenciais que consolidam métricas de desempenho — NPS, volume de atendimentos, chamados e procedimentos realizados — para apoiar decisões baseadas em dados.',
+      logo: 'https://www.clinicaconsulte.com.br/lp/wp-content/uploads/2023/07/Logotipo-Consulte-Verde-e-Azul2-300x100.jpg',
     },
   ]
 
@@ -40,12 +26,10 @@ const Clientes = () => {
         {/* Cabeçalho */}
         <CRow className="justify-content-center mb-5 text-center">
           <CCol md="8">
-              <h2 className="fw-bold mb-3 display-5 text-light">
-              Nossos Clientes
-            </h2>
-            <p className="text-light fs-5">
-              Temos orgulho em atender empresas que confiam em nossas soluções para otimizar processos,
-              automatizar tarefas e alcançar resultados excepcionais.
+            <h2 className="fw-bold mb-3 display-5 text-warning">Nossos Clientes</h2>
+            <p style={{ color: '#D0DAEE' }} className="text-light fs-5">
+              Temos orgulho em atender empresas que confiam em nossas soluções para otimizar
+              processos, automatizar tarefas e alcançar resultados excepcionais.
             </p>
           </CCol>
         </CRow>
@@ -57,7 +41,7 @@ const Clientes = () => {
               <CCard
                 className="border-0 shadow-lg flex-fill text-center p-3 rounded-4"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backgroundColor: '#ebe8e8ff',
                   backdropFilter: 'blur(8px)',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 }}
@@ -71,40 +55,28 @@ const Clientes = () => {
                 }}
               >
                 <CCardBody>
-           <CImage
-  src={cliente.logo}
-  alt={cliente.nome}
-  className="mb-3"
-  style={{
-    maxWidth: '100%',      // nunca ultrapassa o tamanho do container
-    maxHeight: '20%',
-    height: 'auto',        // mantém a proporção original
-    width: 'auto',        // largura base (ajusta se quiser menor/maior)
-    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
-  }}
-/>
+                  <CImage
+                    src={cliente.logo}
+                    alt={cliente.nome}
+                    className="mb-3"
+                    style={{
+                      background: 'grey',
+                      maxWidth: '100%', // nunca ultrapassa o tamanho do container
+                      maxHeight: '50%',
+                      height: 'auto', // mantém a proporção original
+                      width: 'auto', // largura base (ajusta se quiser menor/maior)
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
+                    }}
+                  />
 
-                  <h5 className="fw-bold text-white">{cliente.nome}</h5>
-                  <p className="text-light small">{cliente.descricao}</p>
+                  <h5 className="fw-bold text-info">{cliente.nome}</h5>
+                  <p className="text-light small text-start text-black">{cliente.descricao}</p>
                 </CCardBody>
               </CCard>
             </CCol>
           ))}
         </CRow>
-                          <div className="text-center mt-4">
-            <CButton
-              color="primary"
-              href="/"
-              style={{
-                borderRadius: '8px',
-                padding: '10px 20px',
-                fontWeight: '600',
-              }}
-            >
-              <ArrowLeft size={16} className="me-2" />
-              Voltar
-            </CButton>
-          </div>
+        <BackHomeButton />
       </CContainer>
     </div>
   )
