@@ -58,7 +58,7 @@ const Sobre = () => {
               <CCard
                 className="border-0 shadow-lg flex-fill text-center p-3 rounded-4"
                 style={{
-                  backgroundColor: '#f9f9f9',
+                  backgroundColor: '#ffffffff',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 }}
                 onMouseEnter={(e) => {

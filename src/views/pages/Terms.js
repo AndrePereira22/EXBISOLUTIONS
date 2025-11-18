@@ -1,8 +1,9 @@
 // src/views/pages/Terms.js
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { CContainer, CCard, CCardBody } from '@coreui/react'
+import { CContainer, CCard, CCardBody, CCardHeader } from '@coreui/react'
 import BackHomeButton from '../../components/BackHomeButton'
+import { FileText } from 'lucide-react'
 
 const Terms = () => (
   <div
@@ -15,21 +16,21 @@ const Terms = () => (
       alignItems: 'center',
     }}
   >
-    <CContainer style={{ maxWidth: '950px' }}>
+    <CContainer className="mt-5 mb-5">
       <CCard
         className="shadow border-0 rounded-4"
         style={{
-          backgroundColor: '#e9eaecff',
+          backgroundColor: '#ffffffff',
           color: '#1a1a1a',
           lineHeight: '1.7',
           fontSize: '1.05rem',
         }}
       >
+        <CCardHeader className="card-Header-Style">
+          <FileText size={28} className="me-2 mb-1" />
+          Termos de Uso
+        </CCardHeader>
         <CCardBody className="p-5">
-          <h2 className="text-center mb-4 fw-bold" style={{ color: '#0b2b70' }}>
-            Termos de Uso
-          </h2>
-
           <p>
             Bem-vindo(a) ao site da <strong>Expert BI Solutions</strong>. Ao acessar e utilizar
             nossos serviços, você concorda integralmente com os presentes Termos de Uso.

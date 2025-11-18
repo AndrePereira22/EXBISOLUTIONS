@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CButton, CImage } from '@coreui/react'
 import PropTypes from 'prop-types'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import logo from './../../assets/images/logo_transparente.png'
+import FaleComButton from '../../components/buttons/FaleComButton'
 
 const HeaderLanding = ({ onOpenFaleComModal = () => {} }) => {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   const linkStyle = {
     fontFamily: 'Roboto, sans-serif',
     color: '#f5f5f5',
@@ -13,27 +17,26 @@ const HeaderLanding = ({ onOpenFaleComModal = () => {} }) => {
 
   return (
     <header
-      className="landing-header d-flex justify-content-between align-items-center shadow-sm"
+      className="landing-header d-flex justify-content-between align-items-center shadow-sm px-3"
       style={{
-        minHeight: '60px',
+        minHeight: '70px',
         position: 'fixed',
         width: '100%',
         background: 'linear-gradient(135deg, #4b88e2 0%, #051936 100%)',
         top: 0,
         zIndex: 1000,
         borderBottom: 'none',
-        padding: 0, // remove o padding para encostar na borda
       }}
     >
-      {/* LOGO DENTRO DO RETÂNGULO BRANCO, ENCAIXADO NA BORDA ESQUERDA */}
+      {/* LOGO */}
       <div
         className="logo-box d-flex align-items-center justify-content-center shadow-sm"
         style={{
-          backgroundColor: '#fff',
-          borderRadius: '0 6px 6px 0', // arredondar só o lado direito
+          //backgroundColor: '#EAEAEA',
+          borderRadius: '0 6px 6px 0',
           padding: '5px 10px',
           height: '80px',
-          minWidth: '240px', // ajuste conforme o tamanho da logo
+          minWidth: '200px',
         }}
       >
         <CImage
@@ -47,8 +50,21 @@ const HeaderLanding = ({ onOpenFaleComModal = () => {} }) => {
         />
       </div>
 
+      {/* BOTÃO HAMBÚRGUER (visível apenas em telas pequenas) */}
+      <div
+        className="d-lg-none"
+        onClick={() => setMenuOpen(!menuOpen)}
+        style={{ cursor: 'pointer', color: '#fff', fontSize: '1.5rem' }}
+      >
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
       {/* LINKS DE NAVEGAÇÃO */}
-      <nav className="nav-links d-flex align-items-center gap-3 me-5">
+      <nav
+        className={`nav-links d-flex align-items-center gap-3 me-4 ${
+          menuOpen ? 'mobile-menu-open' : 'mobile-menu-closed'
+        }`}
+      >
         <a href="/" style={linkStyle}>
           Início
         </a>
@@ -61,27 +77,33 @@ const HeaderLanding = ({ onOpenFaleComModal = () => {} }) => {
         <a href="#/sobre-nos" style={linkStyle}>
           Sobre nós
         </a>
-
-        <CButton
-          style={{
-            backgroundColor: '#007bff',
-            color: '#fff',
-            fontWeight: '600',
-            padding: '12px 22px',
-            borderRadius: '12px',
-            border: 'none',
-            fontSize: '1rem',
-            cursor: 'pointer',
-            transition: '0.3s ease',
-            fontFamily: 'Roboto, sans-serif',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#0056b3')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#007bff')}
-          onClick={onOpenFaleComModal}
-        >
-          Fale com um especialista teste
-        </CButton>
+        <FaleComButton onOpenFaleComModal={onOpenFaleComModal} label="Fale com um especialista" />
       </nav>
+
+      {/* ESTILOS RESPONSIVOS */}
+      <style jsx>{`
+        @media (max-width: 992px) {
+          .nav-links {
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #4b88e2 0%, #051936 100%);
+            transition: all 0.3s ease;
+            padding: 20px 0;
+          }
+          .mobile-menu-closed {
+            display: none;
+            opacity: 0;
+          }
+          .mobile-menu-open {
+            display: flex;
+            opacity: 1;
+          }
+        }
+      `}</style>
     </header>
   )
 }

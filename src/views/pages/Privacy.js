@@ -1,7 +1,8 @@
 // src/views/pages/PoliticasPrivacidade.js
 import React from 'react'
-import { CContainer, CCard, CCardBody } from '@coreui/react'
+import { CContainer, CCard, CCardBody, CCardHeader } from '@coreui/react'
 import BackHomeButton from '../../components/BackHomeButton'
+import { Shield } from 'lucide-react'
 
 const PoliticasPrivacidade = () => {
   return (
@@ -15,21 +16,21 @@ const PoliticasPrivacidade = () => {
         alignItems: 'center',
       }}
     >
-      <CContainer style={{ maxWidth: '950px' }}>
+      <CContainer className="mt-5 mb-5">
         <CCard
           className="shadow border-0 rounded-4"
           style={{
-            backgroundColor: '#e9eaecff',
+            backgroundColor: '#ffffffff',
             color: '#1a1a1a',
             lineHeight: '1.7',
             fontSize: '1.05rem',
           }}
         >
+          <CCardHeader className="card-Header-Style">
+            <Shield size={28} className="me-2 mb-1" />
+            Política de Privacidade
+          </CCardHeader>
           <CCardBody className="p-5">
-            <h2 className="text-center mb-4 fw-bold" style={{ color: '#0b2b70' }}>
-              Política de Privacidade
-            </h2>
-
             <p>
               A <strong>Expert BI Solutions</strong> valoriza a privacidade e a segurança dos dados
               de todos os usuários. Este documento explica como coletamos, utilizamos e protegemos

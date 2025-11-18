@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
-import { CButton, CContainer, CRow, CCol, CCard, CCardBody } from '@coreui/react'
+import { CContainer, CRow, CCol, CCard, CCardBody, CBadge, CCardTitle } from '@coreui/react'
 import { FaBolt, FaExpand, FaLink, FaTachometerAlt, FaSyncAlt, FaUsers } from 'react-icons/fa'
 import { HeaderLanding } from '../../components/header/index'
 import { AppFooterLanding } from '../../components/footer/index'
-import nerd from './../../assets/images/img_nerd.png'
-import dash_inteligentes from './../../assets/images/dash_inteligentes.png'
-import automacao_processos from './../../assets/images/img_robo.png'
-import insights_estrategia from './../../assets/images/img_entrategia.png'
-import img_funcionais from './../../assets/images/img_funcionais.png'
-import inteligencia_mercado_grafic from './../../assets/images/inteligencia_mercado_grafic.webp'
 import ExplorarModal from '../modals/ExplorarModal'
 import FaleComEspecialistaModal from '../modals/FaleComEspecialistaModal'
+import BtnDescobrirSolucoes from '../../components/buttons/DescobrirSolucoes'
+import * as Images from '../../components/image'
+
+
+
 import { motion } from 'framer-motion'
 
 const LandingPage = () => {
@@ -25,7 +24,7 @@ const LandingPage = () => {
       <section
         className="hero-section"
         style={{
-          backgroundColor: '#fff',
+          backgroundColor: '#EAEAEA', // '#fff',
           color: '#000',
           minHeight: '100vh',
           display: 'flex',
@@ -49,7 +48,7 @@ const LandingPage = () => {
                 maxWidth: '35%',
               }}
             >
-              <h1 style={{ lineHeight: '1.2', marginBottom: '1.5rem' }}>
+              <h1 className="texto-primario" style={{ lineHeight: '1.2', marginBottom: '1.5rem' }}>
                 A forma mais esperta <br />
                 de controlar seus dados.
               </h1>
@@ -66,26 +65,16 @@ const LandingPage = () => {
                 para o crescimento da sua empresa.
               </p>
 
-              <CButton
-                color="dark"
-                size="lg"
-                style={{
-                  borderRadius: '6px',
-                  fontWeight: 600,
-                  padding: '10px 30px',
-                  marginBottom: '3rem',
-                  width: 'auto',
-                }}
+              <BtnDescobrirSolucoes
+                label="Descubra soluções para sua empresa"
                 onClick={() => setVisible(true)}
-              >
-                Descubra soluções para sua empresa
-              </CButton>
+              />
 
               <CRow className="g-4" style={{ justifyContent: 'flex-start' }}>
                 <CCol xs="auto" className="d-flex align-items-center gap-2">
                   <CCard
                     style={{
-                      backgroundColor: '#000',
+                      backgroundColor: '#4b88e2',
                       color: '#fff',
                       width: '48px',
                       height: '48px',
@@ -95,7 +84,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaBolt size={25} />
+                    <FaBolt className="FaExpand-icone" size={25} />
                   </CCard>
                   <span style={{ fontSize: '1.05rem' }}>Insights em tempo real</span>
                 </CCol>
@@ -103,7 +92,7 @@ const LandingPage = () => {
                 <CCol xs="auto" className="d-flex align-items-center gap-2">
                   <CCard
                     style={{
-                      backgroundColor: '#000',
+                      backgroundColor: '#4b88e2',
                       color: '#fff',
                       width: '48px',
                       height: '48px',
@@ -113,7 +102,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaExpand size={25} />
+                    <FaExpand className="FaExpand-icone" size={25} />
                   </CCard>
                   <span style={{ fontSize: '1.05rem' }}>Integração completa</span>
                 </CCol>
@@ -121,7 +110,7 @@ const LandingPage = () => {
                 <CCol xs="auto" className="d-flex align-items-center gap-2">
                   <CCard
                     style={{
-                      backgroundColor: '#000',
+                      backgroundColor: '#4b88e2',
                       color: '#fff',
                       width: '48px',
                       height: '48px',
@@ -131,7 +120,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaLink size={25} />
+                    <FaLink className="FaExpand-icone" size={25} />
                   </CCard>
                   <span style={{ fontSize: '1.05rem' }}>Automação de relatórios</span>
                 </CCol>
@@ -148,7 +137,7 @@ const LandingPage = () => {
               }}
             >
               <motion.img
-                src={nerd}
+                src={Images.nerd}
                 alt="Dashboard"
                 style={{
                   maxWidth: '70%',
@@ -172,11 +161,12 @@ const LandingPage = () => {
       </section>
 
       {/* ===== MENSAGEM SECTION ===== */}
-      <section id="message" className="features-message py-5">
+      <section id="message" className="features-message py-5 texto-sucesso">
         <CContainer>
           <CRow className="align-items-center g-4">
             <CCol md={4}>
               <h3
+                className="texto-white"
                 style={{
                   fontSize: '2.0rem',
                   fontWeight: 700,
@@ -194,7 +184,7 @@ const LandingPage = () => {
                   lineHeight: '1.2',
                   marginBottom: '1.5rem',
                 }}
-                className="lead text-start"
+                className="lead text-start texto-white "
               >
                 Transformar dados em ações estratégicas é o que diferencia empresas de sucesso. Com
                 nossas soluções de Business Intelligence, você consegue visualizar padrões,
@@ -206,11 +196,15 @@ const LandingPage = () => {
       </section>
 
       {/* ===== FEATURES SECTION ===== */}
-      <section id="features" className="features-section py-5">
+      <section
+        id="features"
+        className="features-section py-5"
+        style={{ backgroundColor: '#EAEAEA' }}
+      >
         <CContainer className="mb-5 mt-5">
           <CRow className="mb-5">
             <CCol md={4}>
-              <h3 className="fw-bold display-6">O que oferecemos</h3>
+              <h3 className="fw-bold display-6 texto-primario">O que oferecemos</h3>
               <p className="lead mt-2">
                 Descubra como informações precisas e insights inteligentes podem potencializar o
                 sucesso do seu negócio.
@@ -221,21 +215,31 @@ const LandingPage = () => {
           <CRow className="text-center g-4 mt-5">
             <CCol md={3}>
               <motion.img
-                src={dash_inteligentes}
+                src={Images.dash_inteligentes}
                 alt="Workflows funcionais"
                 className="img-fluid mb-3 rounded"
                 style={{ maxWidth: '100%' }}
-                animate={{
-                  y: [0, -10, 0],
-                }}
+                animate={{ y: [0, -10, 0] }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
               />
-              <h5 className="mt-3 fw-bold text-start">Dashboards Inteligentes</h5>
-              <p className="mt-3 text-start">
+
+              <CBadge
+                className="fw-bold text-center d-block mt-3 px-3 py-2  texto-center"
+                style={{
+                  fontSize: '1.1rem',
+                  textAlign: 'start',
+                  borderRadius: '12px',
+                  border: 'none',
+                }}
+              >
+                Dashboards Inteligentes
+              </CBadge>
+
+              <p className="mt-3 text-start" style={{ color: '#001f3f' }}>
                 Transforme seus dados em painéis visuais e acompanhe métricas importantes em tempo
                 real.
               </p>
@@ -243,7 +247,7 @@ const LandingPage = () => {
 
             <CCol md={3}>
               <motion.img
-                src={automacao_processos}
+                src={Images.automacao_processos}
                 alt="Soluções completas"
                 className="img-fluid mb-3 rounded"
                 style={{ maxWidth: '100%' }}
@@ -256,7 +260,17 @@ const LandingPage = () => {
                   ease: 'easeInOut',
                 }}
               />
-              <h5 className="mt-3 fw-bold text-start">Automação de Processos</h5>
+              <CBadge
+                className="fw-bold text-center d-block mt-3 px-3 py-2  texto-center"
+                style={{
+                  fontSize: '1.1rem',
+                  textAlign: 'start',
+                  borderRadius: '12px',
+                  border: 'none',
+                }}
+              >
+                Automação de Processos
+              </CBadge>
               <p className="mt-3 text-start">
                 Automatize tarefas repetitivas e otimize o tempo da sua equipe.
               </p>
@@ -264,7 +278,7 @@ const LandingPage = () => {
 
             <CCol md={3}>
               <motion.img
-                src={insights_estrategia}
+                src={Images.insights_estrategia}
                 alt="Tecnologia avançada"
                 className="img-fluid mb-3 rounded"
                 style={{ maxWidth: '100%' }}
@@ -277,7 +291,19 @@ const LandingPage = () => {
                   ease: 'easeInOut',
                 }}
               />
-              <h5 className="mt-3 fw-bold text-start">Insights Estratégicos</h5>
+
+              <CBadge
+                className="fw-bold text-center d-block mt-3 px-3 py-2  texto-center"
+                style={{
+                  fontSize: '1.1rem',
+                  textAlign: 'start',
+                  borderRadius: '12px',
+                  border: 'none',
+                }}
+              >
+                Insights Estratégicos
+              </CBadge>
+
               <p className="mt-3 text-start">
                 Integre sistemas e processos, garantindo operações mais eficientes.
               </p>
@@ -285,7 +311,7 @@ const LandingPage = () => {
 
             <CCol md={3}>
               <motion.img
-                src={img_funcionais}
+                src={Images.img_funcionais}
                 alt="Resultados garantidos"
                 className="img-fluid mb-3 rounded"
                 style={{ maxWidth: '100%' }}
@@ -298,7 +324,17 @@ const LandingPage = () => {
                   ease: 'easeInOut',
                 }}
               />
-              <h5 className="mt-3 fw-bold text-start">Workflows Funcionais</h5>
+              <CBadge
+                className="fw-bold text-center d-block mt-3 px-3 py-2  texto-center"
+                style={{
+                  fontSize: '1.1rem',
+                  textAlign: 'start',
+                  borderRadius: '12px',
+                  border: 'none',
+                }}
+              >
+                Workflows Funcionais
+              </CBadge>
               <p className="mt-3 text-start">
                 Garanta que suas operações fluam sem falhas e com produtividade.
               </p>
@@ -310,7 +346,7 @@ const LandingPage = () => {
           <CRow className="align-items-center mt-5">
             <CCol md={5} className="text-end">
               <motion.img
-                src={inteligencia_mercado_grafic}
+                src={Images.inteligencia_mercado_grafic}
                 alt="Dashboard"
                 style={{
                   maxWidth: '100%',
@@ -328,6 +364,7 @@ const LandingPage = () => {
 
             <CCol md={5}>
               <h1
+                className="texto-primario"
                 style={{
                   fontSize: '2.3rem',
                   fontWeight: '700',
@@ -355,7 +392,7 @@ const LandingPage = () => {
                 <CCol xs="auto" className="d-flex align-items-center gap-2">
                   <CCard
                     style={{
-                      backgroundColor: '#000',
+                      backgroundColor: '#4b88e2',
                       color: '#fff',
                       width: '48px',
                       height: '48px',
@@ -365,7 +402,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaTachometerAlt size={25} />
+                    <FaTachometerAlt className="FaExpand-icone" size={25} />
                   </CCard>
                   <span style={{ fontSize: '0.95rem' }}>Velocidade e segurança</span>
                 </CCol>
@@ -373,7 +410,7 @@ const LandingPage = () => {
                 <CCol xs="auto" className="d-flex align-items-center gap-2">
                   <CCard
                     style={{
-                      backgroundColor: '#000',
+                      backgroundColor: '#4b88e2',
                       color: '#fff',
                       width: '48px',
                       height: '48px',
@@ -383,7 +420,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaSyncAlt size={25} />
+                    <FaSyncAlt className="FaExpand-icone" size={25} />
                   </CCard>
                   <span style={{ fontSize: '0.95rem' }}>Flexibilidade e agilidade</span>
                 </CCol>
@@ -391,7 +428,7 @@ const LandingPage = () => {
                 <CCol xs="auto" className="d-flex align-items-center gap-2">
                   <CCard
                     style={{
-                      backgroundColor: '#000',
+                      backgroundColor: '#4b88e2',
                       color: '#fff',
                       width: '48px',
                       height: '48px',
@@ -401,7 +438,7 @@ const LandingPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <FaUsers size={25} />
+                    <FaUsers className="FaExpand-icone" size={25} />
                   </CCard>
                   <span style={{ fontSize: '0.95rem' }}>Melhor colaboração</span>
                 </CCol>
@@ -412,11 +449,11 @@ const LandingPage = () => {
       </section>
 
       {/* ===== DEPOIMENTOS SECTION ===== */}
-      <section id="features-clientes" className="features-clientes py-5">
+      <section id="features-clientes" className="features-clientes py-5 texto-sucesso">
         <CContainer className="mt-4">
           <CRow className="mb-5">
             <CCol md={12}>
-              <h2 className="fw-bold display-6">O que nossos clientes dizem</h2>
+              <h2 className="fw-bold display-6 texto-white">O que nossos clientes dizem</h2>
             </CCol>
           </CRow>
 
@@ -447,6 +484,7 @@ const LandingPage = () => {
                   style={{
                     transition: 'all 0.3s ease',
                     cursor: 'pointer',
+                    backgroundColor: '#EAEAEA',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-6px)'
@@ -462,7 +500,7 @@ const LandingPage = () => {
                       className="fst-italic mb-3"
                       style={{
                         color: '#555',
-                        fontSize: '1rem',
+                        fontSize: '1.2rem',
                         lineHeight: '1.7',
                       }}
                     >
@@ -476,6 +514,77 @@ const LandingPage = () => {
             ))}
           </CRow>
         </CContainer>
+      </section>
+      {/* ===== NOT FOUND SECTION ===== */}
+      <section
+        style={{ padding: '40px 0', backgroundColor: '#EAEAEA', color: '#000', minHeight: '60vh' }}
+      >
+        <h3 className="text-center mb-5 mt-5 texto-primario">Algumas das Tecnologias Utilizadas</h3>
+
+        <CRow className="g-4 justify-content-center mb-5">
+          {[
+            // lista para reduzir repetição
+            {
+              logo: Images.pythonLogo,
+              alt: 'Python',
+              titulo: 'Python',
+              texto: 'Automação de processos, integrações, APIs e análise de dados.',
+            },
+            {
+              logo: Images.reactLogo,
+              alt: 'React.js',
+              titulo: 'React.js',
+              texto: 'Desenvolvimento de interfaces modernas, rápidas e responsivas.',
+            },
+            {
+              logo: Images.jsLogo,
+              alt: 'JavaScript',
+              titulo: 'JavaScript',
+              texto: 'Lógica front-end e back-end para aplicações escaláveis.',
+            },
+            {
+              logo: Images.powerBiLogo,
+              alt: 'Power BI',
+              titulo: 'Power BI',
+              texto: 'Criação de dashboards, visualizações e relatórios analíticos.',
+            },
+            {
+              logo: Images.pdiLogo,
+              alt: 'Pentaho',
+              titulo: 'Pentaho Data Integration',
+              texto: 'ETL, tratamento de dados e construção de pipelines eficientes.',
+            },
+          ].map((item, i) => (
+            <CCol md={2} key={i}>
+              <CCard
+                className="text-center p-4 shadow-sm h-100"
+                style={{
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  backgroundColor: '#FFFFFF',
+                  border: '0',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-6px)'
+                  e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.08)'
+                }}
+              >
+                <CCardTitle className="mb-3">
+                  <img src={item.logo} alt={item.alt} style={{ width: 52, height: 52 }} />
+                </CCardTitle>
+
+                <CCardBody>
+                  <h5 className="fw-bold">{item.titulo}</h5>
+                  <p>{item.texto}</p>
+                </CCardBody>
+              </CCard>
+            </CCol>
+          ))}
+        </CRow>
       </section>
 
       {/* ===== MODAL ===== */}

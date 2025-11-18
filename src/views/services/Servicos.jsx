@@ -62,7 +62,7 @@ const Servicos = () => {
               <CCard
                 className="h-100 border-0 shadow-sm text-center p-3 transition-card"
                 style={{
-                  backgroundColor: '#f0f3f0ff',
+                  backgroundColor: '#ffffffff',
                   borderRadius: '1rem',
                   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                 }}

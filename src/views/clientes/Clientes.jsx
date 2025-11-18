@@ -41,7 +41,7 @@ const Clientes = () => {
               <CCard
                 className="border-0 shadow-lg flex-fill text-center p-3 rounded-4"
                 style={{
-                  backgroundColor: '#ebe8e8ff',
+                  backgroundColor: '#ffffffff',
                   backdropFilter: 'blur(8px)',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 }}
@@ -61,16 +61,18 @@ const Clientes = () => {
                     className="mb-3"
                     style={{
                       background: 'grey',
-                      maxWidth: '100%', // nunca ultrapassa o tamanho do container
+                      maxWidth: '85%',
                       maxHeight: '50%',
-                      height: 'auto', // mantém a proporção original
-                      width: 'auto', // largura base (ajusta se quiser menor/maior)
-                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
+                      height: 'auto',
+                      width: 'auto',
+                      filter: 'drop-shadow(0 2px 4px rgba(17, 60, 201, 0.3))',
+                      borderRadius: '3%', // deixa circular
+                      objectFit: 'cover', // mantém proporção e preenche o container
                     }}
                   />
 
                   <h5 className="fw-bold text-info">{cliente.nome}</h5>
-                  <p className="text-light small text-start text-black">{cliente.descricao}</p>
+                  <p className="text-secondary text-start">{cliente.descricao}</p>
                 </CCardBody>
               </CCard>
             </CCol>

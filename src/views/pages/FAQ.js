@@ -13,6 +13,7 @@ import {
   CAccordionBody,
 } from '@coreui/react'
 import BackHomeButton from '../../components/BackHomeButton'
+import { HelpCircle } from 'lucide-react'
 
 const FAQ = () => {
   return (
@@ -29,20 +30,26 @@ const FAQ = () => {
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={10} lg={8}>
-            <CCard className="shadow-sm border-0 rounded-4">
-              <CCardHeader className="bg-secondary text-white text-center py-3 rounded-top-4">
-                <h4 className="m-0 text-white">Perguntas Frequentes (FAQ)</h4>
+            <CCard
+              className="shadow-sm border-0 rounded-4"
+              style={{
+                backgroundColor: '#ffffffff',
+              }}
+            >
+              <CCardHeader className="card-Header-Style">
+                <HelpCircle size={28} className="me-2 mb-1" />
+                Perguntas Frequentes (FAQ)
               </CCardHeader>
               <CCardBody className="p-4 text-body">
-                <p className="text-secondary mb-4 text-center">
+                <p className="text-dark mb-4 text-start">
                   Reunimos aqui as principais dúvidas sobre nossos serviços, processos e
                   funcionamento. Caso ainda tenha alguma pergunta, entre em contato com nossa equipe
-                  pelo e-mail <strong className="text-primary">contato@exbisolutions.com</strong>.
+                  pelo e-mail <strong className="text-info">contato@exbisolutions.com</strong>.
                 </p>
 
                 <CAccordion alwaysOpen>
                   <CAccordionItem itemKey={1}>
-                    <CAccordionHeader>
+                    <CAccordionHeader className="faq-header">
                       O que é a Expert BI Solutions e qual é o foco da empresa?
                     </CAccordionHeader>
                     <CAccordionBody>
@@ -107,7 +114,7 @@ const FAQ = () => {
                       Posso solicitar uma demonstração das soluções antes da contratação?
                     </CAccordionHeader>
                     <CAccordionBody>
-                      Sim! Oferecemos uma <strong>demonstração gratuita</strong> onde apresentamos
+                      Sim! Oferecemos uma <strong>Demonstração Gratuita</strong> onde apresentamos
                       um exemplo prático de dashboards e automações aplicadas ao seu segmento. É uma
                       ótima oportunidade para visualizar o potencial que o BI pode trazer ao seu
                       negócio.
@@ -115,7 +122,7 @@ const FAQ = () => {
                   </CAccordionItem>
                 </CAccordion>
 
-                <p className="mt-5 text-center text-secondary small">
+                <p className="mt-5 text-center text-info small">
                   Última atualização: Novembro de 2025
                 </p>
                 <BackHomeButton />

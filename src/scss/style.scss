@@ -56,7 +56,7 @@ h5 {
 p,
 span,
 strong {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
   color: #333 !important;
 }
 
@@ -117,8 +117,157 @@ strong {
   text-align: center;
 }
 
+.features-notfound {
+  padding: 4rem 0;
+  background-color: #ffffff;
+  text-align: center;
+}
+
 .features-start {
   padding: 4rem 0;
   background-color: #fdfdfd;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .falecom-btn {
+    width: 100%;
+    padding: 10px 16px !important;
+    font-size: 0.9rem !important;
+    border-radius: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .falecom-btn {
+    font-size: 0.8rem !important;
+    padding: 8px 14px !important;
+  }
+}
+
+/* ===== HERO SECTION ===== */
+@media (max-width: 992px) {
+  .hero-section .row {
+    flex-wrap: wrap !important;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-section p {
+    font-size: 1rem !important;
+  }
+
+  .hero-section .col {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+
+  .hero-section img {
+    max-width: 85% !important;
+    margin: 2rem auto 0;
+  }
+}
+
+/* ===== BOTÃO "DESCUBRA SOLUÇÕES" ===== */
+@media (max-width: 576px) {
+  .hero-section button {
+    width: 100% !important;
+    font-size: 0.9rem !important;
+    padding: 12px 16px !important;
+  }
+}
+
+/* ===== FEATURES SECTION ===== */
+@media (max-width: 768px) {
+  .features-section .col-md-3 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .features-section img {
+    max-width: 70% !important;
+    margin: 0 auto;
+  }
+
+  .features-section h5,
+  .features-section p {
+    text-align: center !important;
+  }
+}
+
+/* ===== DEPOIMENTOS ===== */
+@media (max-width: 768px) {
+  .features-clientes .col-md-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .features-clientes h2 {
+    font-size: 1.8rem !important;
+    text-align: center;
+  }
+}
+
+/* ===== CABEÇALHO ===== */
+@media (max-width: 768px) {
+  .landing-header nav {
+    flex-wrap: wrap !important;
+    gap: 0.8rem !important;
+    justify-content: center !important;
+  }
+
+  .landing-header .logo-box {
+    min-width: 160px !important;
+    height: 60px !important;
+  }
+}
+
+/* ===== BOTÃO "FALE COM UM ESPECIALISTA" ===== */
+@media (max-width: 768px) {
+  .falecom-btn {
+    width: 100% !important;
+    font-size: 0.9rem !important;
+    padding: 10px 16px !important;
+    border-radius: 10px !important;
+  }
+}
+.card-Header-Style {
+  background: linear-gradient(135deg, #4b88e2, #051936) !important;
+  color: #fff !important;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
+  padding: 1rem 1.5rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.texto-primario {
+  color: #001f3f !important;
+}
+
+.texto-sucesso {
+  background-color: #008080 !important;
+}
+
+.texto-center {
+  color: #ffffff !important;
+  background-color: #4b88e2 !important;
+}
+
+.texto-white {
+  color: #f8fcfc !important;
+}
+
+.FaExpand-icone {
+  background-color: #4b88e2;
+  color: #fffdfd !important;
 }

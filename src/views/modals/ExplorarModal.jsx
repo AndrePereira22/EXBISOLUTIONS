@@ -1,33 +1,25 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CModal, CModalHeader, CModalTitle, CModalBody, CModalFooter, CButton } from '@coreui/react'
+import DadosPorRamo from '../../components/CategoriasPorRamo'
 
 const ExplorarModal = ({ visible, setVisible }) => {
   const [ramo, setRamo] = useState('')
   const [categoria, setCategoria] = useState('')
+  const [subcategoria, setSubcategoria] = useState('')
   const navigate = useNavigate()
 
-  const categoriasPorRamo = {
-    saude: ['Clínica', 'Farmácia', 'Hospital', 'Laboratório'],
-    comercio: ['Loja física', 'E-commerce', 'Supermercado', 'Shopping'],
-    industria: ['Fabricação', 'Distribuição', 'Manufatura'],
-    servicos: ['Consultoria', 'Beleza e estética', 'Transporte', 'Contabilidade'],
-    tecnologia: ['Software', 'Hardware', 'Startups', 'Suporte técnico'],
-    educacao: ['Escola', 'Universidade', 'Cursos livres', 'Treinamentos corporativos'],
-  }
+  const { categoriasPorRamo } = DadosPorRamo
 
   const handleConfirm = () => {
-    if (!ramo) {
-      alert('Selecione o ramo da empresa!')
-      return
-    }
-    if (categoriasPorRamo[ramo]?.length > 0 && !categoria) {
-      alert('Selecione uma categoria!')
-      return
-    }
+    if (!ramo) return alert('Selecione o tipo de negócio!')
+    if (Object.keys(categoriasPorRamo[ramo] || {}).length > 0 && !categoria)
+      return alert('Selecione uma categoria!')
+    if (categoriasPorRamo[ramo]?.[categoria]?.length > 0 && !subcategoria)
+      return alert('Selecione uma subcategoria!')
 
     setVisible(false)
-    navigate('/solucoes', { state: { ramo, categoria } })
+    navigate('/solucoes', { state: { ramo, categoria, subcategoria } })
   }
 
   return (
@@ -37,10 +29,9 @@ const ExplorarModal = ({ visible, setVisible }) => {
       onClose={() => setVisible(false)}
       size="lg"
       backdrop="static"
-      className="explorar-modal"
     >
       <CModalHeader
-        className="border-0 pb-0 bg-gradient"
+        className="border-0 pb-0"
         style={{
           background: 'linear-gradient(135deg, #4b88e2, #051936)',
           color: 'white',
@@ -60,10 +51,10 @@ const ExplorarModal = ({ visible, setVisible }) => {
         style={{ fontFamily: 'Poppins, sans-serif', color: '#333' }}
       >
         <p style={{ fontSize: '1rem', color: '#555' }}>
-          Escolha o tipo de negócio e explore automações e métricas personalizadas.
+          Escolha o tipo de negócio e explore automações e métricas sob medida para a sua empresa.
         </p>
 
-        {/* Campo Ramo */}
+        {/* Ramo */}
         <div className="mb-4 mt-3">
           <label className="form-label fw-semibold" style={{ color: '#222' }}>
             Tipo de negócio
@@ -74,6 +65,7 @@ const ExplorarModal = ({ visible, setVisible }) => {
             onChange={(e) => {
               setRamo(e.target.value)
               setCategoria('')
+              setSubcategoria('')
             }}
             style={{
               borderRadius: '8px',
@@ -84,16 +76,15 @@ const ExplorarModal = ({ visible, setVisible }) => {
             onBlur={(e) => (e.target.style.borderColor = '#ccc')}
           >
             <option value="">Selecione...</option>
-            <option value="comercio">Comércio</option>
-            <option value="industria">Indústria</option>
-            <option value="servicos">Serviços</option>
-            <option value="saude">Saúde</option>
-            <option value="tecnologia">Tecnologia</option>
-            <option value="educacao">Educação</option>
+            {Object.keys(categoriasPorRamo).map((ramoKey) => (
+              <option key={ramoKey} value={ramoKey}>
+                {ramoKey.charAt(0).toUpperCase() + ramoKey.slice(1).replace(/([A-Z])/g, ' $1')}
+              </option>
+            ))}
           </select>
         </div>
 
-        {/* Campo Categoria */}
+        {/* Categoria */}
         {ramo && categoriasPorRamo[ramo] && (
           <div className="mb-4">
             <label className="form-label fw-semibold" style={{ color: '#222' }}>
@@ -102,19 +93,46 @@ const ExplorarModal = ({ visible, setVisible }) => {
             <select
               className="form-select"
               value={categoria}
-              onChange={(e) => setCategoria(e.target.value)}
+              onChange={(e) => {
+                setCategoria(e.target.value)
+                setSubcategoria('')
+              }}
               style={{
                 borderRadius: '8px',
                 borderColor: '#ccc',
                 transition: 'all 0.3s ease',
               }}
-              onFocus={(e) => (e.target.style.borderColor = '#4a63e7')}
-              onBlur={(e) => (e.target.style.borderColor = '#ccc')}
             >
               <option value="">Selecione...</option>
-              {categoriasPorRamo[ramo].map((cat, index) => (
-                <option key={index} value={cat.toLowerCase()}>
+              {Object.keys(categoriasPorRamo[ramo]).map((cat, index) => (
+                <option key={index} value={cat}>
                   {cat}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {/* Subcategoria */}
+        {categoria && categoriasPorRamo[ramo]?.[categoria] && (
+          <div className="mb-4">
+            <label className="form-label fw-semibold" style={{ color: '#222' }}>
+              Subcategoria
+            </label>
+            <select
+              className="form-select"
+              value={subcategoria}
+              onChange={(e) => setSubcategoria(e.target.value)}
+              style={{
+                borderRadius: '8px',
+                borderColor: '#ccc',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              <option value="">Selecione...</option>
+              {categoriasPorRamo[ramo][categoria].map((sub, index) => (
+                <option key={index} value={sub.toLowerCase()}>
+                  {sub}
                 </option>
               ))}
             </select>
@@ -140,10 +158,7 @@ const ExplorarModal = ({ visible, setVisible }) => {
             color: '#555',
             backgroundColor: 'white',
             border: '1px solid #ddd',
-            transition: 'all 0.3s ease',
           }}
-          onMouseEnter={(e) => (e.target.style.backgroundColor = '#f1f3f5')}
-          onMouseLeave={(e) => (e.target.style.backgroundColor = 'white')}
         >
           Cancelar
         </CButton>
@@ -160,8 +175,6 @@ const ExplorarModal = ({ visible, setVisible }) => {
             boxShadow: '0 3px 10px rgba(0,0,0,0.15)',
             transition: 'all 0.3s ease',
           }}
-          onMouseEnter={(e) => (e.target.style.transform = 'translateY(-3px)')}
-          onMouseLeave={(e) => (e.target.style.transform = 'translateY(0)')}
         >
           Ver recomendações
         </CButton>
