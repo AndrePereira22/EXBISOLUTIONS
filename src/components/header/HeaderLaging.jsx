@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CButton, CImage } from '@coreui/react'
+import { CImage } from '@coreui/react'
 import PropTypes from 'prop-types'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import logo from './../../assets/images/logo_transparente.png'
@@ -32,7 +32,6 @@ const HeaderLanding = ({ onOpenFaleComModal = () => {} }) => {
       <div
         className="logo-box d-flex align-items-center justify-content-center shadow-sm"
         style={{
-          //backgroundColor: '#EAEAEA',
           borderRadius: '0 6px 6px 0',
           padding: '5px 10px',
           height: '80px',
@@ -50,7 +49,7 @@ const HeaderLanding = ({ onOpenFaleComModal = () => {} }) => {
         />
       </div>
 
-      {/* BOTÃO HAMBÚRGUER (visível apenas em telas pequenas) */}
+      {/* BOTÃO HAMBÚRGUER */}
       <div
         className="d-lg-none"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -59,7 +58,7 @@ const HeaderLanding = ({ onOpenFaleComModal = () => {} }) => {
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      {/* LINKS DE NAVEGAÇÃO */}
+      {/* MENU */}
       <nav
         className={`nav-links d-flex align-items-center gap-3 me-4 ${
           menuOpen ? 'mobile-menu-open' : 'mobile-menu-closed'
@@ -77,27 +76,32 @@ const HeaderLanding = ({ onOpenFaleComModal = () => {} }) => {
         <a href="#/sobre-nos" style={linkStyle}>
           Sobre nós
         </a>
+
         <FaleComButton onOpenFaleComModal={onOpenFaleComModal} label="Fale com um especialista" />
       </nav>
 
-      {/* ESTILOS RESPONSIVOS */}
+      {/* CSS RESPONSIVO */}
       <style jsx>{`
         @media (max-width: 992px) {
           .nav-links {
-            position: absolute;
+            position: fixed;
             top: 80px;
-            right: 0;
-            width: 100%;
+            left: 0;
+            width: 100vw;
             flex-direction: column;
             align-items: center;
             background: linear-gradient(135deg, #4b88e2 0%, #051936 100%);
+            padding: 25px 0;
+            gap: 25px;
+            z-index: 2000;
             transition: all 0.3s ease;
-            padding: 20px 0;
           }
+
           .mobile-menu-closed {
             display: none;
             opacity: 0;
           }
+
           .mobile-menu-open {
             display: flex;
             opacity: 1;

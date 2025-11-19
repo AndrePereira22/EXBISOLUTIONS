@@ -8,8 +8,6 @@ import FaleComEspecialistaModal from '../modals/FaleComEspecialistaModal'
 import BtnDescobrirSolucoes from '../../components/buttons/DescobrirSolucoes'
 import * as Images from '../../components/image'
 
-
-
 import { motion } from 'framer-motion'
 
 const LandingPage = () => {

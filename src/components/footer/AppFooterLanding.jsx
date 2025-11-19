@@ -1,7 +1,5 @@
 import React from 'react'
 import { CContainer, CRow, CCol, CFooter, CLink } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilPhone, cilEnvelopeClosed, cilGlobeAlt } from '@coreui/icons'
 import ScrollToTopButton from '../ScrollToTopButton'
 
 const AppFooter = () => {
@@ -14,168 +12,172 @@ const AppFooter = () => {
       className="text-white pt-5"
     >
       <CContainer>
-        <CRow>
-          {/* Coluna 1 - Inovações */}
-          <CCol md={3} className="text-start mb-4">
-            <h6 className="text-uppercase fw-bold mb-3">DASHBOARDS</h6>
+        {/* ========= SEÇÃO PRINCIPAL DO RODAPÉ ========= */}
+        <CRow className="mb-4">
+          {/* COLUNA 1 — Informações Legais */}
+          <CCol md={3} sm={6} className="mb-4 text-start">
+            <h6 className="fw-bold text-uppercase mb-3">Informações Legais</h6>
 
-            <p className="mb-2">
-              <CLink
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
-                className="text-white-50 text-decoration-none"
-              >
-                Vendas & Receitas
-              </CLink>
-            </p>
-            <p className="mb-2">
-              <CLink
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
-                className="text-white-50 text-decoration-none"
-              >
-                Operações & Produtividade
-              </CLink>
-            </p>
-            <p className="mb-2">
-              <CLink
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
-                className="text-white-50 text-decoration-none"
-              >
-                Performance Digital & Marketing
-              </CLink>
-            </p>
-            <p className="mb-2">
-              <CLink
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
-                className="text-white-50 text-decoration-none"
-              >
-                Avaliações & Satisfação do Cliente
-              </CLink>
-            </p>
+            <ul className="list-unstyled text-white-50">
+              <li className="mb-2">
+                <CLink href="#/terms" className="text-decoration-none text-white-50">
+                  Termos de Uso
+                </CLink>
+              </li>
+              <li className="mb-2">
+                <CLink href="#/privacy" className="text-decoration-none text-white-50">
+                  Política de Privacidade
+                </CLink>
+              </li>
+              <li>CNPJ: 45.476.234/0001-48</li>
+            </ul>
           </CCol>
 
-          {/* Coluna 2 - Informações legais */}
-          <CCol md={3} className="text-start mb-4">
-            <h6 className="text-uppercase fw-bold mb-3">INFORMAÇÕES LEGAIS</h6>
-            <p className="mb-2">
-              <CLink href="#/terms" className="text-white-50 text-decoration-none">
-                Termos de Uso
-              </CLink>
-            </p>
-            <p className="mb-2">
-              <CLink href="#/privacy" className="text-white-50 text-decoration-none">
-                Políticas de Privacidade
-              </CLink>
-            </p>
-            <p className="text-white-50 mb-0">CNPJ: 45.476.234/0001-48</p>
+          {/* COLUNA 2 — Recursos */}
+          <CCol md={3} sm={6} className="mb-4 text-start">
+            <h6 className="fw-bold text-uppercase mb-3">Recursos</h6>
+
+            <ul className="list-unstyled text-white-50">
+              <li className="mb-2">
+                <CLink href="#/faq" className="text-decoration-none text-white-50">
+                  FAQ
+                </CLink>
+              </li>
+              <li className="mb-2">
+                <CLink href="#/cases-sucesso" className="text-decoration-none text-white-50">
+                  Cases de Sucesso
+                </CLink>
+              </li>
+              <li>
+                <CLink href="#/help" className="text-decoration-none text-white-50">
+                  Help
+                </CLink>
+              </li>
+            </ul>
+          </CCol>
+          {/* COLUNA 3 — Dashboards */}
+          <CCol md={3} sm={6} className="mb-4 text-start">
+            <h6 className="fw-bold text-uppercase mb-3 text-start">Dashboards</h6>
+
+            <ul className="list-unstyled text-white-50">
+              <li className="mb-2">
+                <CLink
+                  href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
+                  target="_blank"
+                  className="text-decoration-none text-white-50 text-start"
+                >
+                  Vendas & Receitas
+                </CLink>
+              </li>
+
+              <li className="mb-2">
+                <CLink
+                  href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
+                  target="_blank"
+                  className="text-decoration-none text-white-50 text-start"
+                >
+                  Operações & Produtividade
+                </CLink>
+              </li>
+
+              <li className="mb-2">
+                <CLink
+                  href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
+                  target="_blank"
+                  className="text-decoration-none text-white-50"
+                >
+                  Performance & Marketing
+                </CLink>
+              </li>
+
+              <li>
+                <CLink
+                  href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
+                  target="_blank"
+                  className="text-decoration-none text-white-50"
+                >
+                  Avaliações & Satisfação
+                </CLink>
+              </li>
+            </ul>
           </CCol>
 
-          {/* Coluna 3 - Recursos */}
-          <CCol md={3} className="text-start mb-4">
-            <h6 className="text-uppercase fw-bold mb-3">RECURSOS</h6>
-            <p className="mb-2">
-              <CLink href="#/faq" className="text-white-50 text-decoration-none">
-                FAQ
-              </CLink>
-            </p>
-            <p className="mb-2">
-              <CLink href="#/cases-sucesso" className="text-white-50 text-decoration-none">
-                Cases de Sucesso
-              </CLink>
-            </p>
-            <p className="mb-0">
-              <CLink href="#/help" className="text-white-50 text-decoration-none">
-                Help
-              </CLink>
-            </p>
-          </CCol>
+          {/* COLUNA 4 — Contato */}
+          <CCol md={3} sm={6} className="mb-4 text-start">
+            <h6 className="fw-bold text-uppercase mb-3 text-light text-start">
+              Redes & Comunicação
+            </h6>
 
-          {/* Coluna 4 - Contato */}
-          <CCol md={3} className="text-start mb-4">
-            <h6 className="text-uppercase fw-bold mb-3">CONTATO</h6>
-            <div className="d-flex align-items-center mb-3">
-              <div
-                style={{
-                  backgroundColor: 'rgba(0, 255, 120, 0.1)',
-                  borderRadius: '50%',
-                  padding: '8px',
-                  marginRight: '10px',
-                }}
-              >
-                <CIcon icon={cilPhone} style={{ fontSize: '1.6rem' }} className="text-success" />
-              </div>
+            <div className="social-icons d-flex align-items-center gap-3 justify-content-start">
+              {/* WhatsApp */}
               <CLink
                 href="https://wa.me/5587996230023?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20ExBi%20Solutions."
                 target="_blank"
-                rel="noopener noreferrer"
-                className="text-success fw-semibold text-decoration-none"
+                className="social-icon whatsapp"
               >
-                (87) 9 9623-0023
+                <i className="bi bi-whatsapp"></i>
               </CLink>
-            </div>
 
-            <div className="d-flex align-items-center mb-3">
-              <div
-                style={{
-                  backgroundColor: 'rgba(0, 255, 120, 0.1)',
-                  borderRadius: '50%',
-                  padding: '8px',
-                  marginRight: '10px',
-                }}
-              >
-                <CIcon
-                  icon={cilEnvelopeClosed}
-                  style={{ fontSize: '1.6rem' }}
-                  className="text-success"
-                />
-              </div>
+              {/* Instagram */}
               <CLink
-                href="mailto:contato@exbisolutions.com"
-                className="text-success fw-semibold text-decoration-none"
+                href="https://www.instagram.com/exbisolutions/"
+                target="_blank"
+                className="social-icon instagram"
               >
-                contato@exbisolutions.com
+                <i className="bi bi-instagram"></i>
               </CLink>
-            </div>
 
-            <div className="d-flex align-items-center">
-              <div
-                style={{
-                  backgroundColor: 'rgba(0, 255, 120, 0.1)',
-                  borderRadius: '50%',
-                  padding: '8px',
-                  marginRight: '10px',
-                }}
-              >
-                <CIcon icon={cilGlobeAlt} style={{ fontSize: '1.6rem' }} className="text-success" />
-              </div>
+              {/* Facebook */}
               <CLink
                 href="https://www.facebook.com/profile.php?id=61583525792824"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="text-success fw-semibold text-decoration-none"
+                className="social-icon facebook"
               >
-                https://www.facebook.com
+                <i className="bi bi-facebook"></i>
               </CLink>
             </div>
+
+            {/* ESTILOS */}
+            <style jsx>{`
+              .social-icons a {
+                font-size: 2rem;
+                transition:
+                  transform 0.25s ease,
+                  filter 0.25s ease;
+                color: #ffffffd9;
+              }
+
+              .social-icons a:hover {
+                transform: scale(1.25);
+                filter: brightness(1.4);
+              }
+
+              .social-icon.whatsapp {
+                color: #25d366;
+              }
+
+              .social-icon.instagram {
+                color: #e1306c;
+              }
+
+              .social-icon.facebook {
+                color: #1877f2;
+              }
+            `}</style>
           </CCol>
         </CRow>
 
-        <hr className="border-light" />
+        {/* LINHA DIVISÓRIA */}
+        <hr className="border-light opacity-50" />
 
+        {/* ========= PARTE INFERIOR ========= */}
         <CRow className="justify-content-between align-items-center pb-3">
           <CCol md={6} className="text-start">
             <small className="text-white-50">
-              © <strong className="text-white-50">EXPERT BI SOLUTIONS </strong>{' '}
-              {new Date().getFullYear()}. Todos os direitos reservados.
+              © 2025 Expert BI Solutions. Todos os direitos reservados.
             </small>
           </CCol>
+
           <CCol md={6} className="text-end">
             <ScrollToTopButton />
           </CCol>

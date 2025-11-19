@@ -2,7 +2,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import HomeIcon from '../assets/images/icone_white.png' // altere o caminho conforme sua estrutura
+import { HomeIcon } from '../components/image/index'
 
 const BackHomeButton = ({ position = 'bottom' }) => {
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ const BackHomeButton = ({ position = 'bottom' }) => {
 
   const style = {
     position: 'fixed',
-    right: '20px',
+    right: '40px',
     [position]: '20px', // pode ser 'top' ou 'bottom'
     backgroundColor: '#0d6efd',
     color: '#fff',

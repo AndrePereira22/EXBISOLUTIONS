@@ -1,5 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Provider } from 'react-redux'
 import 'core-js'
 

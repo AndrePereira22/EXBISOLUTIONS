@@ -10,7 +10,19 @@ import automacao_processos from './../../assets/images/img_robo.png'
 import insights_estrategia from './../../assets/images/img_entrategia.png'
 import img_funcionais from './../../assets/images/img_funcionais.png'
 import inteligencia_mercado_grafic from './../../assets/images/inteligencia_mercado_grafic.png'
+import HomeIcon from '../../assets/images/icone_white.png' // altere o caminho conforme sua estrutura
 
-
-
-export { reactLogo,pythonLogo,jsLogo, powerBiLogo, pdiLogo, nerd, dash_inteligentes, automacao_processos, insights_estrategia, img_funcionais, inteligencia_mercado_grafic }
+export {
+  reactLogo,
+  pythonLogo,
+  jsLogo,
+  powerBiLogo,
+  pdiLogo,
+  nerd,
+  dash_inteligentes,
+  automacao_processos,
+  insights_estrategia,
+  img_funcionais,
+  inteligencia_mercado_grafic,
+  HomeIcon,
+}
