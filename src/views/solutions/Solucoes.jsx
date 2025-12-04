@@ -5,12 +5,22 @@ import { Activity, TrendingUp } from 'lucide-react'
 import BackHomeButton from '../../components/BackHomeButton'
 import DadosPorRamo from '../../components/CategoriasPorRamo'
 
+const normalize = (str) =>
+  str
+    ?.toString()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // remove acentos
+    .toLowerCase()
+    .replace(/\s+/g, '') // remove espaços
+    .replace(/-/g, '') // remove hifens
+
 const Solucoes = ({ onOpenFaleComModal = () => {} }) => {
   const location = useLocation()
   const { ramo, categoria } = location.state || {}
   const { solucoesPorRamo } = DadosPorRamo
 
-  const dados = ramo ? solucoesPorRamo[ramo] : null
+  const dados = ramo ? solucoesPorRamo[normalize(ramo)] : null
 
   return (
     <div
@@ -112,7 +122,7 @@ const Solucoes = ({ onOpenFaleComModal = () => {} }) => {
         </CCardBody>
         <CCardFooter className="d-flex justify-content-center align-items-center mb-3">
           <CButton
-            href="https://wa.me/5587996230023?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20ExBi%20Solutions."
+            href="https://wa.me/5587988613551?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20ExBi%20Solutions."
             target="_blank"
             style={{
               backgroundColor: '#007bff',

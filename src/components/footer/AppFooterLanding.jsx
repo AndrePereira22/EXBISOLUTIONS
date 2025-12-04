@@ -1,8 +1,11 @@
 import React from 'react'
 import { CContainer, CRow, CCol, CFooter, CLink } from '@coreui/react'
 import ScrollToTopButton from '../ScrollToTopButton'
+import { useNavigate } from 'react-router-dom'
 
 const AppFooter = () => {
+  const navigate = useNavigate()
+
   return (
     <CFooter
       style={{
@@ -62,9 +65,9 @@ const AppFooter = () => {
             <ul className="list-unstyled text-white-50">
               <li className="mb-2">
                 <CLink
-                  href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
-                  target="_blank"
-                  className="text-decoration-none text-white-50 text-start"
+                  className="text-decoration-none text-white-50"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => navigate('/vendas')}
                 >
                   Vendas & Receitas
                 </CLink>
@@ -72,9 +75,9 @@ const AppFooter = () => {
 
               <li className="mb-2">
                 <CLink
-                  href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
-                  target="_blank"
-                  className="text-decoration-none text-white-50 text-start"
+                  className="text-decoration-none text-white-50"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => navigate('/operacional')}
                 >
                   Operações & Produtividade
                 </CLink>
@@ -82,9 +85,9 @@ const AppFooter = () => {
 
               <li className="mb-2">
                 <CLink
-                  href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
-                  target="_blank"
                   className="text-decoration-none text-white-50"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => navigate('/marketing')}
                 >
                   Performance & Marketing
                 </CLink>
@@ -92,9 +95,9 @@ const AppFooter = () => {
 
               <li>
                 <CLink
-                  href="https://app.powerbi.com/view?r=eyJrIjoiNDA2NDEyZmYtMDg4YS00MDRlLWE5YTMtMjZjOTk0OTM5OGU2IiwidCI6ImM0MmViYmY5LTI0ZjQtNDU3MS1iNGE3LTA0NjJkNmM5YmM3ZSJ9"
-                  target="_blank"
                   className="text-decoration-none text-white-50"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => navigate('/comercial')}
                 >
                   Avaliações & Satisfação
                 </CLink>

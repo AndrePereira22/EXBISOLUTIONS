@@ -96,7 +96,7 @@ const FaleComEspecialistaModal = ({ visible, setVisible }) => {
                 className="text-light mt-2"
                 color="success"
                 size="lg"
-                href="https://wa.me/5587996230023?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20ExBi%20Solutions."
+                href="https://wa.me/5587988613551?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20ExBi%20Solutions."
                 target="_blank"
                 style={{
                   borderRadius: '50px',

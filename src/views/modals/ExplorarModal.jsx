@@ -31,16 +31,24 @@ const ExplorarModal = ({ visible, setVisible }) => {
       backdrop="static"
     >
       <CModalHeader
-        className="border-0 pb-0"
+        className="border-0 pb-0 text-white"
         style={{
           background: 'linear-gradient(135deg, #4b88e2, #051936)',
           color: 'white',
           borderTopLeftRadius: '10px',
           borderTopRightRadius: '10px',
+          display: 'flex',
+          alignItems: 'center', // 👈 Alinha verticalmente
         }}
       >
         <CModalTitle
-          style={{ fontWeight: 700, fontFamily: 'Inter, sans-serif', fontSize: '1.5rem' }}
+          className="text-white mb-2"
+          style={{
+            fontWeight: 700,
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '1.5rem',
+            color: 'white',
+          }}
         >
           Descubra soluções personalizadas
         </CModalTitle>

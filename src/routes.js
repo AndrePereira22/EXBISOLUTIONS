@@ -1,5 +1,6 @@
 // src/routes.js
 import React from 'react'
+import DashboardLinks from './views/dashboards/DashboardLinks'
 
 const LandingPage = React.lazy(() => import('./views/Landing/LandingPage'))
 const Page404 = React.lazy(() => import('./views/pages/Page404'))
@@ -12,6 +13,7 @@ const Solucoes = React.lazy(() => import('./views/solutions/Solucoes'))
 const Servicos = React.lazy(() => import('./views/services/Servicos'))
 const SobreNos = React.lazy(() => import('./views/sobre/SobreNos'))
 const Clientes = React.lazy(() => import('./views/clientes/Clientes'))
+const DashboardViewer = React.lazy(() => import('./views/dashboards/DashboardViewer'))
 
 const routes = [
   { path: '/', exact: true, name: 'Landing', element: <LandingPage /> },
@@ -24,6 +26,15 @@ const routes = [
   { path: '/sobre-nos', name: 'Sobre Nós', element: <SobreNos /> },
   { path: '/clientes', name: 'Clientes', element: <Clientes /> },
   { path: '/help', name: 'Ajuda', element: <Help /> },
+
+  // ⬇️ ROTAS AUTOMÁTICAS DOS DASHBOARDS
+  ...DashboardLinks.map((dash) => ({
+    path: dash.path,
+    name: dash.name,
+    element: <DashboardViewer url={dash.url} />,
+  })),
+
+  // 404
   { path: '*', name: 'Página não encontrada', element: <Page404 /> },
 ]
 
